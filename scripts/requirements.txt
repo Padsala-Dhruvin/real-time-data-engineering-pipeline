@@ -1,0 +1,5 @@
+yfinance
+newsapi-python
+pandas
+textblob
+python-dotenv
