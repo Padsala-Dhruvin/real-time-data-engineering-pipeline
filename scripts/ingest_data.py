@@ -4,10 +4,16 @@ from newsapi import NewsApiClient
 from textblob import TextBlob
 from datetime import datetime
 import os
+from dotenv import load_dotenv
 
-# 1. SETUP - Get a free key from newsapi.org
-NEWS_API_KEY = 'YOUR_NEWS_API_KEY' 
-newsapi = NewsApiClient(api_key='c27e59821bd04200a40cc5774e191bbf')
+# Load the .env file
+load_dotenv()
+
+# Get the key from environment variables
+NEWS_API_KEY = os.getenv('NEWS_API_KEY')
+
+# Initialize NewsAPI with the hidden key
+newsapi = NewsApiClient(api_key=NEWS_API_KEY)
 
 def get_market_data(ticker="AAPL"):
     print(f"Fetching market data for {ticker}...")
